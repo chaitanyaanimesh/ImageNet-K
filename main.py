@@ -20,7 +20,7 @@ if __name__=="__main__":
     #Create Gennerator object
     generatorObj = Generator()
 
-    #Call the specifief task
+    #Call the specific task
     if args.task == 'val':
         generatorObj.generateValSet()
     elif args.task == 'train':
