@@ -57,11 +57,9 @@ class Generator:
         trainSetLabelsWriter = csv.writer(trainSetLabelsFileObj)
         for group, label in self.labels.items():
             trainFiles = os.listdir(TRAIN_SET_SOURCE + group)
-            trainFiles = np.random.choice(trainFiles, size=100, replace=False)
+            trainFiles = np.random.choice(trainFiles, size=EXAMPLES_PER_CLASS, replace=False)
             for trainFile in trainFiles:
                 trainSetLabelsWriter.writerow([trainFile, label])
                 shu.copyfile(TRAIN_SET_SOURCE + group + DELIMITER + trainFile, TRAIN_SET_DESTINATION + trainFile)
-                break
-            break
 
         trainSetLabelsFileObj.close()
